@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<style>
+	.customHeader{
+		text-align: center;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+</style>
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="pb-2 mt-4 mb-2 border-bottom customHeader">
+    <h3> Feedback List </h3>
+</div>
+<div class="container contact">
+
+	<div class="tab-content">
+		<div class="active" id="showData" role="tabpanel">
+			<table class="table table-striped" id="table" data-height="460">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each feedbacks}}
+                        <tr>
+                            <td>
+                                <!-- TODO: Show Id -->
+                            </td>
+                            <td>
+                                <!-- TODO: Show Name -->
+                            </td>
+                            <td>
+                                <!-- TODO: Show Email -->
+                            </td>
+                            <td>
+                                <!-- TODO: Show Phone -->
+                            </td>
+                            <td>
+                                <!-- Modify the below code and add the action url -->
+                                <form action="" method="GET" class="inline-block">
+                                    <!-- TODO: Send record while submitting the form (feedbackId) -->
+                                    <input type="hidden" name="page" value="{{page}}" />
+                                    <input type="submit" class="btn btn-outline-info" value="View" />
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+			</table>	
+		</div>
+        {{#if hasPreviousPage}}
+            <!-- Add the action endpoint -->
+            <form action="" method="GET" class="inline-block">
+                <!-- TODO: Send previous page number to navigate to previous page -->
+                <!-- TODO: Add a sumbit button to navigate to the previous page -->
+            </form>
+        {{/if}}
+        {{#if hasNextPage}}
+            <!-- Add the action endpoint -->
+            <form action="" method="GET" class="inline-block">
+                <!-- TODO: Send next page number to navigate to next page -->
+                <!-- TODO: Add a submit button to navigate to the next page -->
+            </form>
+        {{/if}}
+	</div>	
+</div>

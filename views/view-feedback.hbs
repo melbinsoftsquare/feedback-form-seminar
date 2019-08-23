@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	
+	.contact-form{
+		padding: 2%;
+		margin-top: 20px;
+	}
+	.contact-form label{
+		font-weight:600;
+	}
+	.contact-form button{
+		background: #25274d;
+		color: #fff;
+		font-weight: 600;
+		width: 25%;
+	}
+	.customHeader{
+		text-align: center;
+		font-size: 20px;
+	}	
+</style>
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="pb-2 mt-4 mb-2 border-bottom customHeader">
+    <h3> View Feedback </h3>
+</div>
+
+<div class="container contact-form">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="name">Name</label>
+		<div class="col-sm-10">          
+			<!-- TODO: Add a disabled input field to render the Name -->
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="email">Email</label>
+		<div class="col-sm-10">          
+			<!-- TODO: Add a disabled input field to render the Email -->
+    	</div>
+	</div>
+	<div class="form-group">
+	  	<label class="control-label col-sm-2" for="phone">Phone</label>
+	  	<div class="col-sm-10">
+			<!-- TODO: Add a disabled input field to render the Phone -->
+	  	</div>
+	</div>
+	<div class="form-group">
+	  	<label class="control-label col-sm-2" for="feedback">Comment</label>
+	  	<div class="col-sm-10">
+			<!-- TODO: Add a text area to render Feedback content -->
+	  	</div>
+	</div>
+	<div class="form-group">        
+	  	<div class="col-sm-offset-2 col-sm-10">
+			<button type="button" onclick="location.href='/view-feedbacks'" class="btn btn-default">Back</button>
+	  	</div>
+	</div>
+</div>
