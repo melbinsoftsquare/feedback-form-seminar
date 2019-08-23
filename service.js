@@ -29,7 +29,7 @@ const createFeedback = (feedback) => {
         }
 
         client.query('INSERT INTO feedback (name, email, phone, feedback) VALUES ($1, $2, $3, $4)',
-            [], // TODO: Pass these values to insert a record into db
+            [feedback.name, feedback.email, feedback.phone, feedback.feedback], // TODO: Pass these values to insert a record into db
             (err, result) => {
                 if(!!err === false) {
                     resolve();
@@ -51,7 +51,7 @@ const getFeedbacks = (page) => {
     return new Promise((resolve, reject) => {
         console.log('querying with', start, limit);
         // TODO: Add the field names on the query
-        client.query('SELECT  FROM feedback LIMIT $1 OFFSET $2',
+        client.query('SELECT id, name, email, phone, feedback FROM feedback LIMIT $1 OFFSET $2',
         [limit, start],
         (err, result) => {
             if (!!err === false) {

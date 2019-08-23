@@ -34,6 +34,9 @@
                             Phone
                         </th>
                         <th>
+                            Feedback
+                        </th>
+                        <th>
                             Action
                         </th>
                     </tr>
@@ -42,16 +45,19 @@
                     {{#each feedbacks}}
                         <tr>
                             <td>
-                                <!-- TODO: Show Id -->
+                                {{this.id}}
                             </td>
                             <td>
-                                <!-- TODO: Show Name -->
+                                {{this.name}}
                             </td>
                             <td>
-                                <!-- TODO: Show Email -->
+                                {{this.email}}
                             </td>
                             <td>
-                                <!-- TODO: Show Phone -->
+                                {{this.phone}}
+                            </td>
+                            <td>
+                                {{this.feedback}}
                             </td>
                             <td>
                                 <!-- Modify the below code and add the action url -->
@@ -68,16 +74,16 @@
 		</div>
         {{#if hasPreviousPage}}
             <!-- Add the action endpoint -->
-            <form action="" method="GET" class="inline-block">
-                <!-- TODO: Send previous page number to navigate to previous page -->
-                <!-- TODO: Add a sumbit button to navigate to the previous page -->
+            <form action="/view-feedbacks" method="GET" class="inline-block">
+                <input type="hidden" name="page" value="{{prevPage}}">
+                <input type="sumbit" value="Previous" />
             </form>
         {{/if}}
         {{#if hasNextPage}}
             <!-- Add the action endpoint -->
-            <form action="" method="GET" class="inline-block">
-                <!-- TODO: Send next page number to navigate to next page -->
-                <!-- TODO: Add a submit button to navigate to the next page -->
+            <form action="/view-feedbacks" method="GET" class="inline-block">
+                <input type="hidden" name="page" value="{{nextPage}}">
+                <input type="sumbit" value="Next" />
             </form>
         {{/if}}
 	</div>	

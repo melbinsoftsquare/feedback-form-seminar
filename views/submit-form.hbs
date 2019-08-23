@@ -23,9 +23,27 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <div class="pb-2 mt-4 mb-2 border-bottom customHeader">
-    <h3> Feedback Form </h3>
+    <h3> Feedback Form Seminar </h3>
 </div>
 
 <div class="container contact-form">
-    <!-- TODO: Develop code for submitting feedback -->
+	<form action="/feedback" method="POST">
+		Name
+		<div>
+			<input type="text" name="name" />
+		</div>
+		Email
+		<div>
+			<input type="text" name="email" />
+		</div>
+		Phone
+		<div>
+			<input type="text" name="phone">
+		</div>
+		Feedback
+		<div>
+			<textarea name="feedback"></textarea>
+		</div>
+		<input type="submit" value="Submit">
+	</form>
 </div>

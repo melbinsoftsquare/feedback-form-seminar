@@ -25,15 +25,16 @@ app.use(bodyParser.json())
 // Submit feedback forms
 app.post('/feedback', (req, res) => {
     // TODO: Send Request vlaues to create the feedback
-    service.createFeedback()
+    console.log(req.body);
+    service.createFeedback(req.body)
     .then(() => {
         // Render Success message. filename - success-message
-        res.render();
+        res.render('success-message');
     })
     .catch((err) => {
         console.log(err);
         // Render Error message. filename - error-message
-        res.render();
+        res.render('error-message', {message: err});
     });
     
 });
@@ -41,7 +42,9 @@ app.post('/feedback', (req, res) => {
 // View all submitted feedbacks
 app.get('/view-feedbacks', (req, res) => {
     let page = req.query.page;
-    page = page || 1;
+    if(!!page === false) {
+        page = 1;
+    }
     service.getFeedbacks(page)
     .then((result) => {
         // Validation to prevent the pagination number is wrong.
@@ -52,7 +55,7 @@ app.get('/view-feedbacks', (req, res) => {
         }
 
         // TODO: Render the page with queried results
-        res.render('view-feedback-list', {feedbacks: '', hasNextPage: hasNextPage, hasPreviousPage: page > 1, prevPage: parseInt(page) - 1, nextPage: parseInt(page) + 1, page: page});
+        res.render('view-feedback-list', {feedbacks: result, hasNextPage: hasNextPage, hasPreviousPage: page > 1, prevPage: parseInt(page) - 1, nextPage: parseInt(page) + 1, page: page});
     });
 });
 
@@ -91,6 +94,6 @@ app.get('/', (req, res) => {
 });
 
 // TODO: Add the port number to add the listener
-app.listen('', () => {
+app.listen(port, () => {
     console.log('App Listening at', port);
 });
